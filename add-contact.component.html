@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <form (ngSubmit)="onSubmit(form); form.resetForm()" #form="ngForm">
+        <div class="row">
+          <div class="form-group">
+            <input type="text" minlength="2" class="form-control" name="name"
+                        [value]="name" placeholder="Name" ngModel required #nameCtrl="ngModel"/>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="phone"
+                    [value]="phone" placeholder="Phone" ngModel required #phoneCtrl="ngModel"/>
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" name="email"
+                    [value]="email" placeholder="Email" ngModel required #emailCtrl="ngModel"/>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="organization"
+                      [value]="organization" placeholder="Organization" ngModel required #orgCtrl="ngModel"/>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="notes"
+                      [value]="notes" placeholder="Notes" ngModel #noteCtrl="ngModel"/>
+          </div>
+          <div class="form-group">
+            <button class="btn"
+                        type="submit"
+                        [disabled]="form.invalid"
+                        [ngClass]="{'btn-primary': nameCtrl !== '' && phoneCtrl !== '' && emailCtrl !== '' && orgCtrl !== '', 'btn-default': nameCtrl == '' && phoneCtrl == '' && emailCtrl == '' && orgCtrl == ''}"
+                        >Add Contact</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
